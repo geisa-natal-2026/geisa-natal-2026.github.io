@@ -123,6 +123,9 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;o
 .nota{background:var(--kraft);border-radius:10px;padding:14px 16px;margin-top:16px;font:400 14.5px/1.45 var(--sans)}
 .nota b{color:var(--vinho);font-weight:600}
 .card .btn{margin-top:20px}
+.card.semfoto{padding:6px 0 4px}
+.orn{display:flex;align-items:center;gap:16px;color:var(--caramelo);font-size:18px;margin-bottom:6px}
+.orn i{flex:1;height:1px;background:var(--caramelo);opacity:.6}
 
 /* ---------- como encomendar ---------- */
 .bl{display:grid;grid-template-columns:56px 1fr;padding:22px 0;border-top:1px solid rgba(181,131,74,.5)}
@@ -186,7 +189,7 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;o
     <div class="sup"><i></i>Cardápio de Natal<i></i></div>
     <img class="logo" src="logo.png" alt="Geisa Rodrigues Confeiteira">
     <h1 class="titulo">NATAL<span>2026</span></h1>
-    <div class="arco"><div class="img"><img src="panetones-trio.jpg" alt="Panetones da Geisa"></div></div>
+    <div class="arco"><div class="img"><img src="capa.jpg" alt="Panetone da Geisa"></div></div>
     <div class="prazos">
       <div><small>Último dia para pedir</small><strong>21/12</strong></div>
       <div><small>Último dia para retirar</small><strong>24/12<em>às 14h</em></strong></div>
@@ -210,9 +213,9 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;o
   <section class="cat wrap" id="galeria">
     <div class="cab"><span>Galeria</span><i></i></div>
     <div class="gal">
-      <div><img src="galeria-recheio.jpg" alt="Panetone recheado" loading="lazy"></div>
-      <div><img src="galeria-biscoitos.jpg" alt="Biscoitos decorados" loading="lazy"></div>
-      <div><img src="galeria-caixa.jpg" alt="Panetone na embalagem" loading="lazy"></div>
+      <div><img src="galeria-1.jpg" alt="Panetone recheado" loading="lazy"></div>
+      <div><img src="galeria-2.jpg" alt="Cookie recheado" loading="lazy"></div>
+      <div><img src="galeria-3.jpg" alt="Panetone na caixa" loading="lazy"></div>
     </div>
   </section>
 
@@ -243,32 +246,32 @@ const WHATS = '5563992810807';
 const R = v => `<small>R$</small>${v}`;
 const CATS = [
   {id:'biscoitos', nome:'Biscoitos', itens:[
-    {linha:'Pacotes de', nome:'Biscoitos', pedido:'Pacote de biscoitos', foto:'biscoitos-pacote.jpg', pos:'50% 55%',
-     listas:[{rot:'Pedido mínimo', itens:['A partir de 5 unidades']}],
+    {linha:'Pacotes de', nome:'Biscoitos', pedido:'Pacote de biscoitos', foto:'biscoitos-pacote.jpg', pos:'48% 60%',
+     listas:[{rot:'Pedido mínimo', itens:['Pacote com 1 unidade: a partir de 10 unidades']}],
      precos:{rot:'Pacotes', linhas:[['5 unidades','10,00'],['1 unidade','3,00']]}}]},
   {id:'cookies', nome:'Cookies', itens:[
-    {linha:'Caixa com 3', nome:'Cookies', pedido:'Caixa de cookies', foto:null,
+    {linha:'Caixa com 3', nome:'Cookies', pedido:'Caixa de cookies', foto:'cookies.jpg', pos:'45% 60%',
      listas:[{rot:'Opção 1', itens:['Ninho Tradicional',['Red Velvet','recheio de chocolate branco'],'Ganache de chocolate']},
              {rot:'Opção 2', itens:['Ninho com Nutella',['Duo Cacau','massa de cacau black e recheio de chocolate'],['Tradicional','recheio de chocolate']]}],
      precos:{rot:'Valores', linhas:[['Caixa com 3 unidades','25,00'],['Cookie tradicional · unidade','8,00'],['Cookie premium · unidade','10,00']]}}]},
   {id:'brigadeiros', nome:'Brigadeiros', itens:[
-    {linha:'Brigadeiros', nome:'Personalizados', pedido:'Caixa de brigadeiros personalizados', foto:null,
+    {linha:'Brigadeiros', nome:'Personalizados', pedido:'Caixa de brigadeiros personalizados', foto:'brigadeiros.jpg', pos:'45% 50%',
      precos:{rot:'Caixas', linhas:[['4 unidades','12,00','Ninho e chocolate branco'],['4 unidades','13,90','Ninho e prestígio'],['9 unidades','23,00','Ninho, prestígio e chocolate branco']]}}]},
   {id:'panetones', nome:'Panetones', itens:[
-    {linha:'Panetone de', nome:'120 g', pedido:'Panetone de 120 g', foto:'panetone-120g.jpg', pos:'50% 60%',
+    {linha:'Panetone de', nome:'150 g', pedido:'Panetone de 150 g', foto:'panetone-150g.jpg', pos:'50% 62%',
      listas:[{rot:'Recheios', itens:['Brigadeiro','Ninho','Prestígio','Oreo']}],
      precos:{rot:'Valor', linhas:[['Unidade','20,00']]},
      nota:'<b>Pedidos a partir de 5 unidades.</b> Embalagem: pacote, laço e adesivo.'},
-    {linha:'Panetones', nome:'Tradicionais', pedido:'Panetone tradicional', foto:'panetone-tradicional.jpg', pos:'50% 60%',
+    {linha:'Panetones', nome:'Tradicionais', pedido:'Panetone tradicional', semfoto:true,
      listas:[{rot:'Recheios', itens:['Brigadeiro','Ninho','Prestígio','Doce de leite','Oreo']}],
      precos:{rot:'Tamanhos', linhas:[['400 g','48,00'],['950 g','80,00']]},
      nota:'<b>400 g:</b> pacote, laço e adesivo. <b>950 g:</b> caixa com laço.'},
-    {linha:'Panetones', nome:'Premium', pedido:'Panetone premium', foto:'panetone-premium.jpg', pos:'55% 60%',
+    {linha:'Panetones', nome:'Premium', pedido:'Panetone premium', foto:'panetone-premium.jpg', pos:'50% 58%',
      tab:{cols:['Sabor','400 g','950 g'], linhas:[['Ninho com Nutella','58,00','100,00'],['Trufado de chocolate ao leite','58,00','100,00'],
        [['Dois chocolates','chocolate ao leite e chocolate branco'],'58,00','100,00'],['Pistache','60,00','110,00']]},
      nota:'<b>Embalagens:</b> 400 g em pacote, laço e adesivo · 950 g em caixa com laço.'}]},
   {id:'sobremesas', nome:'Sobremesas', itens:[
-    {nome:'Sobremesas', pedido:'Sobremesa', foto:null, sv:'<b>P</b> serve até 10 pessoas · <b>M</b> serve até 20 pessoas',
+    {nome:'Sobremesas', pedido:'Sobremesa', foto:'sobremesas.jpg', pos:'50% 55%', sv:'<b>P</b> serve até 10 pessoas · <b>M</b> serve até 20 pessoas',
      tab:{cols:['Sobremesa','P','M'], linhas:[['Pavê tradicional','80,00','100,00'],['Ninho com cacau black','85,00','110,00'],
        ['Ninho com maracujá','85,00','105,00'],['Pavetone','90,00','110,00'],['Surpresa de uva','90,00','115,00']]}}]},
 ];
@@ -278,9 +281,10 @@ const ICO = '<svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2.5a9.5 9.5 0 0 0
 const nm = x => Array.isArray(x) ? `<div class="nm">${x[0]}</div><div class="d">${x[1]}</div>` : `<div class="nm">${x}</div>`;
 
 function card(it){
-  let h = `<article class="card"><div class="duas"><div class="foto">${it.foto
+  let h = it.semfoto ? `<article class="card semfoto"><div><div>` : `<article class="card"><div class="duas"><div class="foto">${it.foto
       ? `<img src="${it.foto}" alt="${it.pedido}" loading="lazy" style="object-position:${it.pos||'50% 50%'}">`
       : '<div class="falta">foto em<br>produção</div>'}</div><div>`;
+  if (it.semfoto) h += '<div class="orn"><i></i>✦<i></i></div>';
   if (it.linha) h += `<div class="linha">${it.linha}</div>`;
   h += `<h2${it.linha?'':' style="margin-top:22px"'}>${it.nome}</h2>`;
   if (it.sv) h += `<div class="sv">${it.sv}</div>`;
